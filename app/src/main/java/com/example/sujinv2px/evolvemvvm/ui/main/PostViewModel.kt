@@ -43,7 +43,7 @@ class PostViewModel @Inject constructor(
                     response.value = Response.loading()
                 }
                 .subscribe({
-                    response.value = Response.complete("fetch_remote_complete")
+                    response.value = Response.complete(PostState.FETCH_REMOTE_COMPLETE)
 
                 }, { error ->
                     response.value = Response.error(error)
