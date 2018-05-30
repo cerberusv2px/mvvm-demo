@@ -5,7 +5,7 @@ import com.example.sujinv2px.evolvemvvm.data.local.impl.PostLocalRepository
 import com.example.sujinv2px.evolvemvvm.data.remote.ApiService
 import com.example.sujinv2px.evolvemvvm.data.remote.impl.PostRemoteRepository
 import com.example.sujinv2px.evolvemvvm.di.scope.PerActivity
-import com.example.sujinv2px.evolvemvvm.domain.repository.PostRepository
+import com.example.sujinv2px.evolvemvvm.domain.PostRepository
 import dagger.Module
 import dagger.Provides
 

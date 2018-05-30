@@ -3,7 +3,7 @@ package com.example.sujinv2px.evolvemvvm.data.local.impl
 import android.arch.lifecycle.LiveData
 import com.example.sujinv2px.evolvemvvm.data.entity.Posts
 import com.example.sujinv2px.evolvemvvm.data.local.DatabaseManager
-import com.example.sujinv2px.evolvemvvm.domain.repository.PostRepository
+import com.example.sujinv2px.evolvemvvm.domain.PostRepository
 import io.reactivex.Observable
 import javax.inject.Inject
 
