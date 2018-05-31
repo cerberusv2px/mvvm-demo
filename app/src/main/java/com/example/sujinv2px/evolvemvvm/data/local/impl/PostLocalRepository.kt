@@ -1,6 +1,7 @@
 package com.example.sujinv2px.evolvemvvm.data.local.impl
 
 import android.arch.lifecycle.LiveData
+import android.arch.paging.DataSource
 import com.example.sujinv2px.evolvemvvm.data.entity.Posts
 import com.example.sujinv2px.evolvemvvm.data.local.DatabaseManager
 import com.example.sujinv2px.evolvemvvm.domain.PostRepository
@@ -14,7 +15,7 @@ class PostLocalRepository @Inject constructor(
         throw UnsupportedOperationException()
     }
 
-    override fun fetchLocalPost(): LiveData<List<Posts>> {
+    override fun fetchLocalPost(): DataSource.Factory<Int, Posts> {
         return databaseManager.getPostDao().getAll()
     }
 

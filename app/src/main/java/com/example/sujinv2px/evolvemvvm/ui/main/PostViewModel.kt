@@ -1,8 +1,11 @@
 package com.example.sujinv2px.evolvemvvm.ui.main
 
+import android.arch.lifecycle.LifecycleObserver
 import android.arch.lifecycle.LiveData
 import android.arch.lifecycle.MutableLiveData
 import android.arch.lifecycle.ViewModel
+import android.arch.paging.LivePagedListBuilder
+import android.arch.paging.PagedList
 import com.example.sujinv2px.evolvemvvm.data.entity.Posts
 import com.example.sujinv2px.evolvemvvm.data.local.impl.PostLocalRepository
 import com.example.sujinv2px.evolvemvvm.data.remote.impl.PostRemoteRepository
@@ -17,7 +20,7 @@ class PostViewModel @Inject constructor(
         @Local private val postLocalRepository: PostLocalRepository,
         @Remote private val postRemoteRepository: PostRemoteRepository,
         private val schedulersFactory: SchedulersFactory
-) : ViewModel() {
+) : ViewModel(), LifecycleObserver {
 
     private val disposables = CompositeDisposable()
     private val response = MutableLiveData<Response>()
@@ -53,8 +56,13 @@ class PostViewModel @Inject constructor(
         )
     }
 
-    fun fetchPostLocal(): LiveData<List<Posts>> {
-        return postLocalRepository.fetchLocalPost()
+    fun fetchPostLocal(): LiveData<PagedList<Posts>> {
+        val builder = PagedList.Config.Builder()
+        val pagerListConfig: PagedList.Config = builder.setEnablePlaceholders(true)
+                .setPrefetchDistance(10)
+                .setPageSize(20).build()
+        val postList = LivePagedListBuilder(postLocalRepository.fetchLocalPost(), pagerListConfig).build()
+        return postList
     }
 
 }

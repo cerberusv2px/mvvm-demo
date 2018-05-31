@@ -1,6 +1,7 @@
 package com.example.sujinv2px.evolvemvvm.data.remote.impl
 
 import android.arch.lifecycle.LiveData
+import android.arch.paging.DataSource
 import com.example.sujinv2px.evolvemvvm.data.entity.Posts
 import com.example.sujinv2px.evolvemvvm.data.remote.ApiService
 import com.example.sujinv2px.evolvemvvm.domain.PostRepository
@@ -14,7 +15,7 @@ class PostRemoteRepository @Inject constructor(
         return apiService.fetchPost()
     }
 
-    override fun fetchLocalPost(): LiveData<List<Posts>> {
+    override fun fetchLocalPost(): DataSource.Factory<Int, Posts> {
         throw UnsupportedOperationException()
     }
 

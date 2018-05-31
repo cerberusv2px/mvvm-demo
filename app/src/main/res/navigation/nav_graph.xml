@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    app:startDestination="@id/postsActivity">
+
+    <activity
+        android:id="@+id/postsActivity"
+        android:name="com.example.sujinv2px.evolvemvvm.ui.main.PostsActivity"
+        android:label="activity_main"
+        tools:layout="@layout/activity_main">
+        <action
+            android:id="@+id/action_postActivity_to_commentActivity"
+            app:destination="@id/commentActivity" />
+    </activity>
+    <activity
+        android:id="@+id/commentActivity"
+        android:name="com.example.sujinv2px.evolvemvvm.ui.comments.CommentActivity"
+        android:label="activity_comment"
+        tools:layout="@layout/activity_comment" />
+</navigation>
