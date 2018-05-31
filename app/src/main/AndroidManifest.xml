@@ -3,6 +3,7 @@
     package="com.example.sujinv2px.evolvemvvm">
 
     <uses-permission android:name="android.permission.INTERNET" />
+
     <application
         android:name=".EvolveApplication"
         android:allowBackup="true"
@@ -18,6 +19,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name=".ui.comments.CommentActivity"></activity>
     </application>
 
 </manifest>
