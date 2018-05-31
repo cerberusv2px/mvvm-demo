@@ -4,8 +4,8 @@ import dagger.Subcomponent
 import dagger.android.AndroidInjector
 
 @Subcomponent
-interface MainActivitySubComponent : AndroidInjector<MainActivity> {
+interface PostActivitySubComponent : AndroidInjector<PostsActivity> {
 
     @Subcomponent.Builder
-    abstract class Builder : AndroidInjector.Builder<MainActivity>()
+    abstract class Builder : AndroidInjector.Builder<PostsActivity>()
 }
