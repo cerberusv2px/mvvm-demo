@@ -7,6 +7,10 @@ import com.example.sujinv2px.evolvemvvm.ui.base.BaseActivity
 
 class CommentActivity : AppCompatActivity() {
 
+    companion object {
+
+    }
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_comment)

@@ -7,9 +7,8 @@ import android.support.v7.util.DiffUtil
 import android.view.LayoutInflater
 import android.view.ViewGroup
 
-abstract class BaseAdapter<T, VH : BaseViewHolder>(
-        c: DiffUtil.ItemCallback<T>
-) : PagedListAdapter<T, VH>(c) {
+abstract class BaseAdapter<T, VH : BaseViewHolder>(c: DiffUtil.ItemCallback<T>) : PagedListAdapter<T, VH>(c) {
+
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): VH {
         val layoutInflater = LayoutInflater.from(parent.context)
         val binding = DataBindingUtil.inflate<ViewDataBinding>(

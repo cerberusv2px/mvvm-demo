@@ -17,8 +17,8 @@ import io.reactivex.disposables.CompositeDisposable
 import javax.inject.Inject
 
 class PostViewModel @Inject constructor(
-        @Local private val postLocalRepository: PostLocalRepository,
-        @Remote private val postRemoteRepository: PostRemoteRepository,
+        private val postLocalRepository: PostLocalRepository,
+        private val postRemoteRepository: PostRemoteRepository,
         private val schedulersFactory: SchedulersFactory
 ) : ViewModel(), LifecycleObserver {
 

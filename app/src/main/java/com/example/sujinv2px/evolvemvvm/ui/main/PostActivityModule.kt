@@ -1,27 +1,26 @@
 package com.example.sujinv2px.evolvemvvm.ui.main
 
+import com.example.sujinv2px.evolvemvvm.data.local.DatabaseManager
 import com.example.sujinv2px.evolvemvvm.data.local.impl.PostLocalRepository
+import com.example.sujinv2px.evolvemvvm.data.remote.ApiService
 import com.example.sujinv2px.evolvemvvm.data.remote.impl.PostRemoteRepository
 import com.example.sujinv2px.evolvemvvm.di.scope.PerActivity
-import com.example.sujinv2px.evolvemvvm.utils.SchedulersFactory
+import com.example.sujinv2px.evolvemvvm.domain.PostRepository
 import dagger.Module
 import dagger.Provides
 
 @Module
-class PostActivityModule {
+open class PostActivityModule {
 
-    @PerActivity
     @Provides
-    internal fun providePostViewModelFactory(
-            postLocalRepository: PostLocalRepository,
-            postRemoteRepository: PostRemoteRepository,
-            schedulersFactory: SchedulersFactory
-    ): PostViewModelFactory {
+    @PerActivity
+    fun providePostLocalRepository(databaseManager: DatabaseManager): PostRepository {
+        return PostLocalRepository(databaseManager)
+    }
 
-        return PostViewModelFactory(
-                postLocalRepository,
-                postRemoteRepository,
-                schedulersFactory
-        )
+    @Provides
+    @PerActivity
+    fun providePostRemoteRepository(apiService: ApiService): PostRepository {
+        return PostRemoteRepository(apiService)
     }
 }

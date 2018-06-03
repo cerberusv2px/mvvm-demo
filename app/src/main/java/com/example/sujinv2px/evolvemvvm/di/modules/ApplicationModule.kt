@@ -17,9 +17,7 @@ import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 import java.util.concurrent.TimeUnit
 
-@Module(includes = [
-    (PostModule::class)
-])
+@Module
 open class ApplicationModule {
 
     @Provides
