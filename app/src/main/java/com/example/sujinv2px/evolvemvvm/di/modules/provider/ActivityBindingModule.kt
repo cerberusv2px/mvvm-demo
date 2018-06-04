@@ -1,8 +1,8 @@
 package com.example.sujinv2px.evolvemvvm.di.modules.provider
 
 import com.example.sujinv2px.evolvemvvm.di.scope.PerActivity
-import com.example.sujinv2px.evolvemvvm.ui.main.MainActivity
-import com.example.sujinv2px.evolvemvvm.ui.main.MainActivityModule
+import com.example.sujinv2px.evolvemvvm.ui.main.PostsActivity
+import com.example.sujinv2px.evolvemvvm.ui.main.PostActivityModule
 import dagger.Module
 import dagger.android.ContributesAndroidInjector
 
@@ -11,7 +11,7 @@ abstract class ActivityBindingModule {
 
     @PerActivity
     @ContributesAndroidInjector(modules = [
-        (MainActivityModule::class)
+        (PostActivityModule::class)
     ])
-    abstract fun bindMainActivity(): MainActivity
+    abstract fun bindMainActivity(): PostsActivity
 }
